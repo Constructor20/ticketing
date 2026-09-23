@@ -1,0 +1,15 @@
+Pour dossier csv ---> Table Matériels/Incidents/Demandes
+
+Pour table séparation enter chaque lieu Batignolles/Montreuil
+
+Système de recherche
+
+Utilisateur
+
+Temps estimé: environs 2 semaines
+
+Je pars sur une bdd pour une question de rapidité et de maintenabilité sur la durée, et plus efficace 
+
+Sa sera d'après mon analyse refaire les tables qu'utilisait la page web et développer l'api pour faire la jointure entre les deux
+
+
