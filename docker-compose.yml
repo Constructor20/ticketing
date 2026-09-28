@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
-      - ./src/frontend:/var/www/html
+      - ./src:/var/www/html
     ports:
       - "8081:80"
 
