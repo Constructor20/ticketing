@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticketing - Connexion</title>
-</head>
-<body>
 <?php
-    require_once 'view/authview.php';
-    ?>
-</body>
-</html>
+// /var/www/html = tout ticketing/ (montage racine), Apache sert src/
+session_start();
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+require_once dirname(__DIR__) . '/src/controller/AuthController.php';
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+
+if (($_SERVER['REQUEST_METHOD'] !== 'POST') && (!isset($_GET['action']) || $_GET['action'] !== 'login')) {
+    echo"fonctionne pas";
+} else {
+    echo"fonctionne";
+}
+
+
+require_once __DIR__ . '/view/authview.php'; 
+ 
+?>

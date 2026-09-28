@@ -1,0 +1,6 @@
+.git/
+vendor/
+.env
+src/.env
+trash/
+exemple-calculatrice-mvc/

@@ -3,9 +3,14 @@ services:
     build: .
     container_name: ticketing-app
     restart: unless-stopped
-    working_dir: /var/www/html
+    working_dir: /var/www/html/src
     volumes:
-      - ./src:/var/www/html
+      # Tout le dossier ticketing/ dans /var/www/html, Apache sert src/ (voir dockerfile)
+      - ./:/var/www/html
+      # Volume anonyme : garde le vendor reconstruit dans l'image (Linux).
+      # Sans lui, le mount ci-dessus écraserait /var/www/html/vendor.
+      - /var/www/html/vendor
+      - ./.env:/var/www/html/.env:ro
     ports:
       - "8081:80"
 
