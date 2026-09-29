@@ -1,8 +1,14 @@
 <?php 
+
+require_once("model/authModel.php");
+
+
 class AuthController {
     public function login()
     {
-        require_once '../view/authview.php';
+        if(isset($_POST["email"]) || isset($_POST["password"]) == null || "") {
+            echo"force a toi";
+        }
     }
 }
 

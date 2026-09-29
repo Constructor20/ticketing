@@ -26,6 +26,15 @@ class Database{
         }
     
     }
+
+    /**
+     * Get the value of user
+     */ 
+    public function getUser()
+    {
+        return $this->user;
+    }
+
 }
 
 
