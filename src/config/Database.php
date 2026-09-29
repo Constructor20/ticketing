@@ -8,13 +8,10 @@ class Database{
     private $password;
     private $host;
 
-    public function __construct($db, $user, $password, $host){
-        try {
 
-            $this->db = $db;
-            $this->user = $user;
-            $this->password = $password;
-            $this->host = $host;    
+
+    public function __construct($host, $db, $user, $password){
+        try {    
 
             $this->PDO = new PDO("mysql:host=$host;dbname=$db", $user, $password);
             $this->PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -27,14 +24,16 @@ class Database{
     
     }
 
-    /**
-     * Get the value of user
-     */ 
-    public function getUser()
-    {
-        return $this->user;
-    }
+    
 
+
+    /**
+     * Get the value of PDO
+     */ 
+    public function getPDO()
+    {
+        return $this->PDO;
+    }
 }
 
 
