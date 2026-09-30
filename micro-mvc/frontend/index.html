@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro-MVC - Connexion (exemple)</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Connexion (exemple)</h1>
+        <!-- Mini formulaire : il DÉCRIT ce que le backend devra recevoir.
+             POST /login avec email + password = le contrat à respecter côté backend.
+             (Ici : backend non branché, le submit n'aboutit nulle part pour l'instant.) -->
+        <form action="/login" method="POST">
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="email" required>
+            <br>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
