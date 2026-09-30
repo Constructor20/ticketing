@@ -1,0 +1,38 @@
+services:
+  node:
+    build: .
+    container_name: ticketing-api
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+      - "8081:8080"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  db:
+    image: mariadb:11.4
+    container_name: ticketing-db
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  adminer:
+    image: adminer:5.3.0
+    container_name: ticketing-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+
+volumes:
+  db-data:
